@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended:true}))
 
 mongoose.connect(MONGODB,{useNewUrlParser:true}).then(()=>console.log("Connected to MongoDB")).catch((er)=>console.log("Error in connecting mongodb",er))
 
-// app.use( multer().any()) // Middleware to parse the request body with multer
+app.use( multer().any()) // Middleware to parse the request body with multer
 
 app.use("/",route)
 
