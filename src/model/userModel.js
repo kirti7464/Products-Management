@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mongoose= require("mongoose")
 
 const userSchema= new mongoose.Schema({ 
@@ -60,4 +61,68 @@ const userSchema= new mongoose.Schema({
     }
   },{timestamps:true})
 
+=======
+const mongoose= require("mongoose")
+
+const userSchema= new mongoose.Schema({ 
+    fname: {
+        type:String,
+        required:true
+    },
+    lname: {
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true,      //valid email
+        unique:true
+    },
+    profileImage: {
+        type:String,
+        required:true
+    }, // s3 link
+    phone:{
+        type:String,
+        required:true,      //valid Indian mobile number
+        unique:true
+    },
+    password: {
+        type:String,
+        required:true
+    }, // encrypted password
+    address: 
+    {
+      shipping: {
+        street: {
+            type:String,
+            required:true
+        },
+        city: {
+            type:String,
+            required:true
+        },
+        pincode: {
+            type:Number,
+            required:true
+        },
+      },
+      billing: {
+        street: {
+            type:String,
+            required:true
+        },
+        city:{
+            type:String,
+            required:true
+        },
+        pincode:  {
+            type:Number,
+            required:true
+        }
+      }
+    }
+  },{timestamps:true})
+
+>>>>>>> dea9d840748959539eb6cfac383a623845044cd1
   module.exports= mongoose.model("user",userSchema)
