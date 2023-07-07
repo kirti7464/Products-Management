@@ -4,6 +4,9 @@ const {registerUser,loginUser,getUser,updateUser}= require("../controller/userCo
 const authenticate= require("../middleware/authentication")
 const authorise= require("../middleware/authorization")
 const {createProduct,getProduct,getProductById,updateProduct,delProduct}= require("../controller/productController")
+const {createCart,updateCart,getCart,delCart}= require("../controller/cartController")
+const {createOrder,updateOrder}=require("../controller/orderController")
+
 //User API
 
 router.post("/register",registerUser)
@@ -19,4 +22,16 @@ router.get("/products",getProduct)
 router.get("/products/:productId",getProductById)
 router.put("/products/:productId",updateProduct)
 router.delete("/products/:productId",delProduct)
+
+//Cart API
+
+router.post("/users/:userId/cart",createCart)
+router.put("/users/:userId/cart",updateCart)
+router.get("/users/:userId/cart",getCart)
+router.delete("/users/:userId/cart",delCart)
+
+//OrderAPI
+
+router.post("/users/:userId/orders",authenticate,authorise,createOrder)
+router.put("/users/:userId/orders",authenticate,authorise,updateOrder)
 module.exports = router

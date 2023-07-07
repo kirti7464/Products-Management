@@ -13,7 +13,7 @@ const isValidString = function (value) {
     return true;
   }
   const isValidNum = function (value) {
-    value= +value 
+    value= +value
     if (typeof value === "undefined" || value === null) return false;
     if (typeof value === "number" && value>= 0) {
       if(value.toString().match(/^[0-9]+$/)) return true;
