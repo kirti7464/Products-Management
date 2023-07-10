@@ -25,10 +25,10 @@ router.delete("/products/:productId",delProduct)
 
 //Cart API
 
-router.post("/users/:userId/cart",createCart)
-router.put("/users/:userId/cart",updateCart)
-router.get("/users/:userId/cart",getCart)
-router.delete("/users/:userId/cart",delCart)
+router.post("/users/:userId/cart",authenticate,authorise,createCart)
+router.put("/users/:userId/cart",authenticate,authorise,updateCart)
+router.get("/users/:userId/cart",authenticate,authorise,getCart)
+router.delete("/users/:userId/cart",authenticate,authorise,delCart)
 
 //OrderAPI
 
